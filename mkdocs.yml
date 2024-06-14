@@ -1,2 +1,17 @@
-site_name: Tracepaper 3
+site_name: Tracepaper
 docs_dir: './documentation'
+
+theme:
+  name: null
+  custom_dir: mkdocs_windmill
+  static_templates: [404.html]
+  search_index_only: true
+  include_search_page: true
+
+markdown_extensions:
+  - toc:
+      permalink: '#'
+
+extra:
+  history_buttons: false
+  version: v3
