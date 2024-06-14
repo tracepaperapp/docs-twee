@@ -1,1 +1,1 @@
-mkdocs build --site-dir docs -t readthedocs
+mkdocs build --site-dir docs
