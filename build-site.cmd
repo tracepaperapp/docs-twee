@@ -1,1 +1,0 @@
-mkdocs build --site-dir html
