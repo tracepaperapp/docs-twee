@@ -1,5 +1,6 @@
 site_name: Tracepaper
 docs_dir: './documentation'
+site_dir: './docs'
 
 theme:
   name: null

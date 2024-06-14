@@ -1,1 +1,1 @@
-mkdocs build --site-dir docs
+mkdocs build

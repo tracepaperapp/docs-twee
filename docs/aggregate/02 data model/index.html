@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Aggregate Data Model - Tracepaper</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Aggregate Data Model", url: "#_top", children: [
+              {title: "The Document", url: "#the-document" },
+              {title: "The Events", url: "#the-events" },
+              {title: "Side Notes on Views", url: "#side-notes-on-views" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../expressions/01%20actor%20event%20role/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../expressions/01%20actor%20event%20role/" class="btn btn-xs btn-link">
+        API Authorization Expression
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../01%20aggregate/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../01%20aggregate/" class="btn btn-xs btn-link">
+        The Aggregate Concept
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="aggregate-data-model">Aggregate Data Model<a class="headerlink" href="#aggregate-data-model" title="Permanent link">#</a></h1>
+<p>The data model consists of two parts, the actual part: the <strong>events</strong>, and the projection: the <strong>document</strong>.</p>
+<h2 id="the-document">The Document<a class="headerlink" href="#the-document" title="Permanent link">#</a></h2>
+<p>The document is a projection of the data, a mental model of the state so that we can implement validations in the behavior to ensure data integrity. Because it is a projection, this model can evolve over time without manipulating the underlying data. Events from the past are immutable by definition.</p>
+<p>Thus, the document serves both as a mental model for ourselves on how we want to think about state and as a way to model how we present data to the viewstore. It is the data contract between the aggregate and the viewstore.</p>
+<h2 id="the-events">The Events<a class="headerlink" href="#the-events" title="Permanent link">#</a></h2>
+<p>The domain events are the recording of facts. They reflect a bundle of data that encompasses the delta between two states. Therefore, the state is not stored in the database, merely a log of deltas that exist alongside each other on a timeline. This is called the event log.</p>
+<h3 id="event-handling">Event Handling<a class="headerlink" href="#event-handling" title="Permanent link">#</a></h3>
+<p>To populate our mental model, the projection, we need event handlers. These model the mapping between the event log and the document.</p>
+<hr />
+<h2 id="side-notes-on-views">Side Notes on Views<a class="headerlink" href="#side-notes-on-views" title="Permanent link">#</a></h2>
+<p>Views will be discussed later, but regarding the contract, the viewstore essentially models the external contract, the GraphQL API. So while the document is a data contract, this contract remains within the domain. The viewstore can do various things with the data:</p>
+<h3 id="store-as-is">Store As Is<a class="headerlink" href="#store-as-is" title="Permanent link">#</a></h3>
+<p>Essentially caching a snapshot of the aggregate state. In this case, the internal model becomes publicly accessible, being queryable and read-optimized.</p>
+<h3 id="enrich-and-store">Enrich and Store<a class="headerlink" href="#enrich-and-store" title="Permanent link">#</a></h3>
+<p>Enrichment can take various forms, such as combining data from different aggregates into one document or modifying data for storage, i.e., determining derived data and caching it in the viewstore.</p>
+<h3 id="enrich-during-data-reading">Enrich During Data Reading<a class="headerlink" href="#enrich-during-data-reading" title="Permanent link">#</a></h3>
+<p>Modifying the API response before it is sent to the client. This involves executing logic on the combination of request data and cached data. Essentially, this is an on-the-fly projection where the view model is virtual. The logic has access to the request data and a fluent API to the viewstore, allowing the creation of a response object using Python scripting from this combination.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../expressions/01%20actor%20event%20role/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../expressions/01%20actor%20event%20role/" class="btn btn-xs btn-link">
+        API Authorization Expression
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../01%20aggregate/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../01%20aggregate/" class="btn btn-xs btn-link">
+        The Aggregate Concept
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
