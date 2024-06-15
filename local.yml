@@ -9,10 +9,6 @@ theme:
   search_index_only: true
   include_search_page: true
 
-markdown_extensions:
-  - toc:
-      permalink: '#'
-
 extra:
   history_buttons: false
   version: v3

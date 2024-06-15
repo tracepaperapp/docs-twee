@@ -1,7 +1,8 @@
 site_name: Tracepaper
 docs_dir: './documentation'
 site_dir: './docs'
-base_url: '../docs-twee'
+site_url: 'https://tracepaper.draftsman.io/docs-twee'
+base_url: 'https://tracepaper.draftsman.io/docs-twee'
 
 theme:
   name: null
