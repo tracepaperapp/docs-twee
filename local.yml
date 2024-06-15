@@ -1,6 +1,8 @@
 site_name: Tracepaper
 docs_dir: './documentation'
 site_dir: './docs'
+site_url: 'http://localhost:8000'
+base_url: 'http://localhost:8000'
 
 theme:
   name: null
