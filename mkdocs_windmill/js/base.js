@@ -49,8 +49,13 @@ function qualifyUrl(url) {
  */
 function getRelPath(separator, absUrl) {
   var prefix = rootUrl + (endsWith(rootUrl, separator) ? '' : separator);
-  console.log("pre",prefix,absUrl,absUrl.startsWith(prefix),absUrl.replace(prefix,""))
-  return absUrl.startsWith(prefix) ? absUrl.replace(prefix,"") : null;
+  if (absUrl.startsWith(prefix)){
+    return absUrl.replace(prefix,"");
+  } else if (absUrl.startsWith(prefix.replace('#','/#'))){
+    return absUrl.replace(prefix.replace('#','/#'),"");
+  } else {
+    return null;
+  }
 }
 
 /**
