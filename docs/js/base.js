@@ -49,6 +49,7 @@ function qualifyUrl(url) {
  */
 function getRelPath(separator, absUrl) {
   var prefix = rootUrl + (endsWith(rootUrl, separator) ? '' : separator);
+  console.log("pre",prefix,absUrl,absUrl.startsWith(prefix),absUrl.replace(prefix,""))
   return absUrl.startsWith(prefix) ? absUrl.replace(prefix,"") : null;
 }
 
