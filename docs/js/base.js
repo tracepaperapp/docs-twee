@@ -11,7 +11,7 @@
 // file: the outer frame hides one half, and the inner hides the other. TODO: this should be
 // possible to greatly simplify after mkdocs-1.0 release.
 
-var mainWindow = is_top_frame ? window : (window.parent !== window ? window.parent : null);
+var mainWindow = is_top_frame ? window : (window.parent !== window ? window.parent : window);
 var iframeWindow = null;
 var rootUrl = qualifyUrl(base_url);
 var searchIndex = null;
