@@ -5,7 +5,7 @@
 // The full page consists of a main window with navigation and table of contents, and an inner
 // iframe containing the current article. Which article is shown is determined by the main
 // window's #hash portion of the URL. In fact, we use the simple rule: main window's URL of
-// "rootUrl#relPath" corresponds to iframe's URL of "rootUrl/relPath".
+// "rootUrl#relPath" corresponds to iframe's URL of "rootUrl/relPath". 
 //
 // The main frame and the contents of the index page actually live in a single generated html
 // file: the outer frame hides one half, and the inner hides the other. TODO: this should be
@@ -25,7 +25,7 @@ var Keys = {
   DOWN:   40,
 };
 
-function startsWith(str, prefix) { return str.lastIndexOf(prefix, 0) === 0; }
+function startsWith(str, prefix) { return str.lastIndexOf(prefix, 0) === 0; } 
 function endsWith(str, suffix) { return str.indexOf(suffix, str.length - suffix.length) !== -1; }
 
 /**
