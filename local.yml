@@ -1,7 +1,6 @@
 site_name: Tracepaper
 docs_dir: './documentation'
 site_dir: './docs'
-base_url: '../docs-twee'
 
 theme:
   name: null

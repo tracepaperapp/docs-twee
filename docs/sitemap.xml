@@ -1,28 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/</loc>
-         <lastmod>2024-06-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/aggregate/01%20aggregate/</loc>
-         <lastmod>2024-06-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/aggregate/02%20data%20model/</loc>
-         <lastmod>2024-06-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/expressions/01%20actor%20event%20role/</loc>
-         <lastmod>2024-06-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/expressions/02%20trigger%20key%20expression/</loc>
-         <lastmod>2024-06-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
 </urlset>
