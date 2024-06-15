@@ -69,6 +69,7 @@ function updateIframe(enableForwardNav) {
   // Grey out the "forward" button if we don't expect 'forward' to work.
   $('#hist-fwd').toggleClass('greybtn', !enableForwardNav);
 
+  console.log("RAW",window.location,window.parent.location)
   console.log("BU",base_url,mainWindow.location.href,location.href); 
   var targetRelPath = getRelPath('#', mainWindow.location.href) || '';
   console.log("RP",targetRelPath);
