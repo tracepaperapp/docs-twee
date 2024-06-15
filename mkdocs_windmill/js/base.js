@@ -70,7 +70,9 @@ function updateIframe(enableForwardNav) {
   $('#hist-fwd').toggleClass('greybtn', !enableForwardNav);
 
   var targetRelPath = getRelPath('#', mainWindow.location.href) || '';
+  console.log("RP",targetRelPath);
   var targetIframeUrl = getAbsUrl('/', targetRelPath);
+  console.log("TU",targetIframeUrl);
   var loc = iframeWindow.location;
   var currentIframeUrl = _safeGetLocationHref(loc);
 
