@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://tracepaper.draftsman.io/docs-twee/02_View_Domain/02_projections/">
+    <link rel="shortcut icon" href="https://tracepaper.draftsman.io/docs-twee/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Projections - Tracepaper</title>
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://tracepaper.draftsman.io/docs-twee/css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/jquery-3.2.1.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/bootstrap-3.3.7.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = 'https://tracepaper.draftsman.io/docs-twee';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Projections", url: "#_top", children: [
+              {title: "API Configuration", url: "#api-configuration" },
+              {title: "Arguments", url: "#arguments" },
+              {title: "Data Preparation Logic", url: "#data-preparation-logic" },
+              {title: "Fluent API", url: "#fluent-api" },
+          ]},
+        ];
+
+    </script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../03_Utils/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../03_Utils/" class="btn btn-xs btn-link">
+        Globaly available concepts
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../01_views/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../01_views/" class="btn btn-xs btn-link">
+        Views
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="projections">Projections<a class="headerlink" href="#projections" title="Permanent link">#</a></h1>
+<p>The core concept of a projection involves dynamically transforming and combining data from various sources, such as
+materialized views and user inputs, to generate specialized views in real-time. Projections facilitate tasks like
+aggregating multiple materialized views, applying advanced filters based on user criteria, and performing calculations
+using both user-provided data and precomputed views. This dynamic approach enables responsive and flexible querying,
+ensuring that applications can deliver tailored data views efficiently without relying solely on precomputed results.</p>
+<h2 id="api-configuration">API Configuration<a class="headerlink" href="#api-configuration" title="Permanent link">#</a></h2>
+<p>To configure a projection, several key elements must be defined:</p>
+<h3 id="projection-name">Projection Name<a class="headerlink" href="#projection-name" title="Permanent link">#</a></h3>
+<p>A unique identifier for the projection, which helps in managing and referencing the projection.</p>
+<h3 id="graphql-namespace">GraphQL Namespace<a class="headerlink" href="#graphql-namespace" title="Permanent link">#</a></h3>
+<p>The namespace under which the projection's GraphQL queries will be bundled. This helps in organizing queries logically.</p>
+<h3 id="graphql-method-name">GraphQL Method Name<a class="headerlink" href="#graphql-method-name" title="Permanent link">#</a></h3>
+<p>The method name used to invoke the projection via GraphQL. This name should be unique within the specified namespace.</p>
+<h3 id="authorization-method">Authorization Method<a class="headerlink" href="#authorization-method" title="Permanent link">#</a></h3>
+<p>Specifies the access control for the projection. The following methods are supported:</p>
+<ul>
+<li><strong>anonymous</strong>: Requires an API key that can be configured in the client. This key may be publicly available, and the
+  API may rate limit these requests to prevent DDOS attacks.</li>
+<li><strong>authenticated</strong>: Requires a user token to access the data.</li>
+<li><strong>role based</strong>: Requires the user to have a specific role to access the data.</li>
+</ul>
+<h3 id="return-object">Return Object<a class="headerlink" href="#return-object" title="Permanent link">#</a></h3>
+<p>References a view model that defines the structure of the data returned by the projection.</p>
+<h3 id="return-type">Return Type<a class="headerlink" href="#return-type" title="Permanent link">#</a></h3>
+<p>Specifies whether the projection returns a single item or a result set. The possible values are:</p>
+<ul>
+<li><strong>item</strong>: Returns a single instance of the view.</li>
+<li><strong>result_set</strong>: Returns a list of instances.</li>
+</ul>
+<h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">#</a></h2>
+<p>Projections can accept various query variables, which are specified as follows:</p>
+<h3 id="name">Name<a class="headerlink" href="#name" title="Permanent link">#</a></h3>
+<p>The name of the query variable.</p>
+<h3 id="type">Type<a class="headerlink" href="#type" title="Permanent link">#</a></h3>
+<p>The data type of the query variable. Supported types include:</p>
+<ul>
+<li>String</li>
+<li>Int</li>
+<li>Float</li>
+<li>Boolean</li>
+<li>StringList</li>
+</ul>
+<h3 id="required">Required<a class="headerlink" href="#required" title="Permanent link">#</a></h3>
+<p>Specifies whether the query variable is mandatory for the projection to execute. The possible values are:</p>
+<ul>
+<li><strong>true</strong></li>
+<li><strong>false</strong></li>
+</ul>
+<h2 id="data-preparation-logic">Data Preparation Logic<a class="headerlink" href="#data-preparation-logic" title="Permanent link">#</a></h2>
+<p>The core logic for preparing data in a projection is written in Python. This logic involves accessing materialized
+views, applying filters, and transforming data as needed. The following example demonstrates how to implement the data
+preparation logic:</p>
+<pre><code class="language-python">from draftsman.ViewStoreApi import Query
+
+
+def transform(arguments, username):
+    # You have access to the username of the requestor and the arguments.
+    print(f&quot;Handle graph request [{arguments}/{username}]&quot;)
+
+    # You have access to a fluent API to access materialized views
+    # Here are some examples:
+
+    # Access a specific object (most efficient method cost-wise)
+    data = Query('ViewName').get_item(&quot;key&quot;).run()
+
+    # Get a list of all objects of a specific type
+    data = Query('ViewName').get_items().run()
+
+    # Filter a list of objects based on type and key, part of the canonical key concept
+    data = Query('ViewName').get_items(&quot;key_starts_with_this_value&quot;).run()
+
+    # Filter on content for a specific type (performs a scan on all views of type 'ViewName')
+    data = Query('ViewName').get_items().equals('key', 'value').between('key', 0, 100).run()
+
+    # Combine the two filter methods to filter within a subset
+    data = Query('ViewName').get_items(&quot;key_starts_with_this_value&quot;).equals('key', 'value').between('key', 0, 100).run()
+
+    # Switch to an &quot;or&quot; operator for filters (default is &quot;and&quot;)
+    data = Query('ViewName').get_items(key=&quot;key_starts_with_this_value&quot;, filter_chain_method=&quot;or&quot;).equals('key',
+                                                                                                          'value').between(
+        'key', 0, 100).run()
+
+    # Program data transformations with Python
+    # Ensure you add all fields that are defined in the return view object definition
+    return {&quot;field_name&quot;: &quot;value&quot;}
+</code></pre>
+<h2 id="fluent-api">Fluent API<a class="headerlink" href="#fluent-api" title="Permanent link">#</a></h2>
+<p>The Fluent API, which allows you to query and filter
+data from the DynamoDB view store in a flexible and efficient manner.</p>
+<p>The Fluent API provides a convenient way to construct and execute queries against the DynamoDB view-store-table. It
+supports various
+filtering methods and allows for the retrieval of individual items or sets of items based on specified criteria.</p>
+<h3 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">#</a></h3>
+<p>To start using the Fluent API, you need to initialize the <code>Query</code> class with the type of view you want to query.</p>
+<pre><code class="language-python">from draftsman.ViewStoreApi import Query
+
+# Initialize a query for a specific view name
+query = Query(&quot;YourViewName&quot;)
+</code></pre>
+<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">#</a></h3>
+<h4 id="retrieving-items">Retrieving Items<a class="headerlink" href="#retrieving-items" title="Permanent link">#</a></h4>
+<h5 id="get_item">get_item<a class="headerlink" href="#get_item" title="Permanent link">#</a></h5>
+<p>Retrieve a single item based on its key.</p>
+<pre><code class="language-python">query.get_item(&quot;your_item_key&quot;)
+</code></pre>
+<h5 id="get_items">get_items<a class="headerlink" href="#get_items" title="Permanent link">#</a></h5>
+<p>Retrieve a set of items, optionally filtered by a key prefix.</p>
+<pre><code class="language-python">query.get_items(key=&quot;key_prefix&quot;, filter_chain_method=&quot;and&quot;)
+</code></pre>
+<ul>
+<li><code>key</code> (optional): A prefix to filter items by their keys.</li>
+<li><code>filter_chain_method</code> (optional): Determines how multiple filters are combined. Can be "and" or "or". Default is "
+  and".</li>
+</ul>
+<h4 id="adding-filters">Adding Filters<a class="headerlink" href="#adding-filters" title="Permanent link">#</a></h4>
+<p>Filters can be applied to the query to narrow down the results. The following filter methods are available:</p>
+<h5 id="equals">equals<a class="headerlink" href="#equals" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute equals a specified value.</p>
+<pre><code class="language-python">query.equals(&quot;attribute_name&quot;, &quot;value&quot;)
+</code></pre>
+<h5 id="less_than">less_than<a class="headerlink" href="#less_than" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute is less than a specified value.</p>
+<pre><code class="language-python">query.less_than(&quot;attribute_name&quot;, value)
+</code></pre>
+<h5 id="less_than_equals">less_than_equals<a class="headerlink" href="#less_than_equals" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute is less than or equal to a specified value.</p>
+<pre><code class="language-python">query.less_than_equals(&quot;attribute_name&quot;, value)
+</code></pre>
+<h5 id="greater_than">greater_than<a class="headerlink" href="#greater_than" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute is greater than a specified value.</p>
+<pre><code class="language-python">query.greater_than(&quot;attribute_name&quot;, value)
+</code></pre>
+<h5 id="greater_than_equals">greater_than_equals<a class="headerlink" href="#greater_than_equals" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute is greater than or equal to a specified value.</p>
+<pre><code class="language-python">query.greater_than_equals(&quot;attribute_name&quot;, value)
+</code></pre>
+<h5 id="begins_with">begins_with<a class="headerlink" href="#begins_with" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute begins with a specified value.</p>
+<pre><code class="language-python">query.begins_with(&quot;attribute_name&quot;, &quot;value_prefix&quot;)
+</code></pre>
+<h5 id="between">between<a class="headerlink" href="#between" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute is between two specified values.</p>
+<pre><code class="language-python">query.between(&quot;attribute_name&quot;, low_value, high_value)
+</code></pre>
+<h5 id="not_equals">not_equals<a class="headerlink" href="#not_equals" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute does not equal a specified value.</p>
+<pre><code class="language-python">query.not_equals(&quot;attribute_name&quot;, &quot;value&quot;)
+</code></pre>
+<h5 id="exists">exists<a class="headerlink" href="#exists" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute exists.</p>
+<pre><code class="language-python">query.exists(&quot;attribute_name&quot;)
+</code></pre>
+<h5 id="not_exists">not_exists<a class="headerlink" href="#not_exists" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute does not exist.</p>
+<pre><code class="language-python">query.not_exists(&quot;attribute_name&quot;)
+</code></pre>
+<h5 id="contains">contains<a class="headerlink" href="#contains" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute contains a specified value.</p>
+<pre><code class="language-python">query.contains(&quot;attribute_name&quot;, &quot;value&quot;)
+</code></pre>
+<h5 id="attribute_type">attribute_type<a class="headerlink" href="#attribute_type" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute is of a specified type.</p>
+<pre><code class="language-python">query.attribute_type(&quot;attribute_name&quot;, &quot;type&quot;)
+</code></pre>
+<h5 id="is_in">is_in<a class="headerlink" href="#is_in" title="Permanent link">#</a></h5>
+<p>Filter items where the attribute is in a specified list of values.</p>
+<pre><code class="language-python">query.is_in(&quot;attribute_name&quot;, [&quot;value1&quot;, &quot;value2&quot;, &quot;value3&quot;])
+</code></pre>
+<h4 id="running-the-query">Running the Query<a class="headerlink" href="#running-the-query" title="Permanent link">#</a></h4>
+<p>Once the query is constructed with the necessary filters, it can be executed using the <code>run</code> method.</p>
+<pre><code class="language-python">result = query.run()
+</code></pre>
+<ul>
+<li>If <code>get_item</code> was used, <code>run</code> returns a single item.</li>
+<li>If <code>get_items</code> was used, <code>run</code> returns a list of items matching the query.</li>
+</ul>
+<h4 id="method-chaining">Method chaining<a class="headerlink" href="#method-chaining" title="Permanent link">#</a></h4>
+<p>The Fluent API supports method chaining, allowing you to construct complex queries in a readable and concise manner by
+chaining multiple method calls together. Method chaining enhances the clarity of query construction and reduces the need
+for intermediate variables.</p>
+<pre><code class="language-python">resultset = query.get_items(&quot;key_prefix&quot;).equals(&quot;status&quot;, &quot;active&quot;).greater_than(&quot;priority&quot;, 1).equals(&quot;user&quot;,&quot;j.doe&quot;).run()
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../03_Utils/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../03_Utils/" class="btn btn-xs btn-link">
+        Globaly available concepts
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../01_views/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../01_views/" class="btn btn-xs btn-link">
+        Views
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

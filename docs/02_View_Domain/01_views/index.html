@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://tracepaper.draftsman.io/docs-twee/02_View_Domain/01_views/">
+    <link rel="shortcut icon" href="https://tracepaper.draftsman.io/docs-twee/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Views - Tracepaper</title>
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://tracepaper.draftsman.io/docs-twee/css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/jquery-3.2.1.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/bootstrap-3.3.7.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = 'https://tracepaper.draftsman.io/docs-twee';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Views", url: "#_top", children: [
+              {title: "Fields", url: "#fields" },
+              {title: "Relations", url: "#relations" },
+              {title: "Business Key", url: "#business-key" },
+              {title: "Data Mapping", url: "#data-mapping" },
+              {title: "GraphQL Queries", url: "#graphql-queries" },
+              {title: "Data Retention and Exclusion", url: "#data-retention-and-exclusion" },
+              {title: "Benefits", url: "#benefits" },
+          ]},
+        ];
+
+    </script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../02_projections/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../02_projections/" class="btn btn-xs btn-link">
+        Projections
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        About
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="views">Views<a class="headerlink" href="#views" title="Permanent link">#</a></h1>
+<p>Views are defined entities that represent a set of attributes and may contain transformation of data from underlying
+aggregates (data sources). Each view is named and configured with specific parameters.</p>
+<h2 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link">#</a></h2>
+<p>Views represent collections of documents, fields are part of the document schema. Fields are configured with a name and
+a type (String, Int, Float, Boolean, StringList).</p>
+<h2 id="relations">Relations<a class="headerlink" href="#relations" title="Permanent link">#</a></h2>
+<p>The document schema of a view may have relations to other views. These may be OneToOne, OneToMany, ManyToOne, and
+ManyToMany. A special type of relation is the ObjectList. While the other relations point to other documents in the view
+store, ObjectList represents a nested object in the document.</p>
+<p>Relations are part of the document schema of a view and have a name, relation type, and referenced view-model as minimal
+configuration. Depending on the relation type, it may be mandatory to configure the foreign key (this may be a canonical
+key, an advanced feature explained later). Optionally, it is possible to require a specific role (authorization) to
+access the relational data. The default authorization method is <code>inherit from the API query</code>, meaning if the client has
+access to the view, they have access to the relational data.</p>
+<h2 id="business-key">Business Key<a class="headerlink" href="#business-key" title="Permanent link">#</a></h2>
+<p>One of the fields may be appointed to serve as the business key (also called the primary key). The field that is used as
+the business key must be of the type <code>String</code>. Only when a business key is appointed, the view can be stored in the
+view-store as a root document. Only root documents may have queries exposed in the GraphQL API.</p>
+<p>If no business key is appointed, the view model can only serve as ObjectList relations in other views.</p>
+<h2 id="data-mapping">Data Mapping<a class="headerlink" href="#data-mapping" title="Permanent link">#</a></h2>
+<p>Views with an appointed business key need to be filled with data published by aggregates. There are two types of
+event-handlers that are configured to listen for snapshot-events from a specific aggregate. A view may have multiple
+event handlers observing different aggregates or multiple handlers observing the same aggregate. This is useful when the
+aggregate instance has its business key updated, allowing one handler to create a new instance with the new key and
+another handler to remove the old view instance.</p>
+<p>A snapshot-event is streamed to the view-store every time an aggregate emits a domain-event.</p>
+<h3 id="mapper">Mapper<a class="headerlink" href="#mapper" title="Permanent link">#</a></h3>
+<p>The first type of event-handler is a simple mapper. It enables you to map aggregate fields and collections to
+view-fields and ObjectList relations. Additionally, you must configure which aggregate field (String) serves as the
+business-key of the view-instance. Note that the business-key for the view may differ from the business-key from the
+aggregate. Furthermore, you can select a processing strategy, either <code>item</code> or <code>dictionary</code>.</p>
+<ul>
+<li><strong>Item</strong>: The mapping is executed once for every aggregate snapshot.</li>
+<li><strong>Dictionary</strong>: In this case, you select one of the aggregate's nested collections to be processed. This is useful
+  when a nested collection in an aggregate must be autonomously queryable.</li>
+</ul>
+<p>Additionally, you can configure multiple delete-expressions, causing deletion of the view instance when any of the
+expressions evaluate to true.</p>
+<h3 id="custom-mapper">Custom Mapper<a class="headerlink" href="#custom-mapper" title="Permanent link">#</a></h3>
+<p>Instead of relying on the standard mapping, you can use Python code to convert aggregate data into the view instance.
+This allows for advanced use cases like pre-filtering and enrichment beyond the capabilities of the standard mapper. For
+example, you could create multilevel nesting in the document (ObjectList relation) which the standard mapper only
+provides for one level. However, for maintainability, simpler is usually better.</p>
+<h2 id="graphql-queries">GraphQL Queries<a class="headerlink" href="#graphql-queries" title="Permanent link">#</a></h2>
+<p>Queries associated with views define access patterns for retrieving data via GraphQL. The GraphQL namespace is
+configured at the view level, meaning all queries in a specific view are bundled in the same namespace. Each query has a
+unique name in this namespace, and the needed access control method can be configured:</p>
+<ul>
+<li><strong>anonymous</strong>: Requires an API key that can be configured in the client. Because this key may become publicly
+  available, the API may rate limit these requests to prevent DDOS attacks.</li>
+<li><strong>authenticated</strong>: Requires a user token to access the data.</li>
+<li><strong>user</strong>: Requires a predefined query parameter to match the signed-in user, making the data accessible only to the
+  current signed-in user.</li>
+<li><strong>role-based</strong>: Requires the user to have a specific role to access the data.</li>
+</ul>
+<p>There are three types of queries:</p>
+<ul>
+<li><strong>get</strong>: Returns one instance of the view based on the business key. This type can be configured once per view.</li>
+<li><strong>filter</strong>: Returns a list of instances based on defined filter clauses, e.g., <code>field x equals a query parameter</code>.
+  During modeling, the possible filter clauses are defined. Filters may also provide canonical search, making the
+  key_begins_with query parameter mandatory. This type can be configured only once per view.</li>
+<li><strong>named query</strong>: Similar to the filter query but with a configurable name during modeling, and the filter clauses are
+  mandatory for the client.</li>
+</ul>
+<h2 id="data-retention-and-exclusion">Data Retention and Exclusion<a class="headerlink" href="#data-retention-and-exclusion" title="Permanent link">#</a></h2>
+<p>Views may specify:</p>
+<ul>
+<li><strong>Data Retention</strong>: Period for which data within the view remains accessible. Defined in days, the default is -1,
+  translating to indefinitely.</li>
+<li><strong>Notification Exclusion</strong>: By default, the view store will publish a GraphQL notification to which clients can
+  subscribe. The notification contains the view name and the primary key, allowing the client to refetch the data when
+  an update occurs. Subscriptions to the notification may be anonymous. This option prevents the publication of this
+  notification, e.g., because the business key contains identifiable data like a username or an email address.</li>
+</ul>
+<h2 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Data Consistency</strong>: Views provide consistent and up-to-date representations of data entities.</li>
+<li><strong>Customization</strong>: Custom handlers enable tailored logic and functionalities within views.</li>
+<li><strong>Integration</strong>: Seamless integration with underlying aggregates ensures data accuracy and synchronization.</li>
+<li><strong>Security</strong>: Authorization controls ensure data access is restricted as per defined policies.</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../02_projections/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../02_projections/" class="btn btn-xs btn-link">
+        Projections
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        About
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

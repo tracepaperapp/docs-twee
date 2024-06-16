@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="canonical" href="https://tracepaper.draftsman.io/docs-twee/expressions/01%20actor%20event%20role/">
+    <link rel="canonical" href="https://tracepaper.draftsman.io/docs-twee/03_Utils/01_expressions/">
     <link rel="shortcut icon" href="https://tracepaper.draftsman.io/docs-twee/img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>API Authorization Expression - Tracepaper</title>
+    <title>Expressions - Tracepaper</title>
     <link href="https://tracepaper.draftsman.io/docs-twee/css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="https://tracepaper.draftsman.io/docs-twee/css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="https://tracepaper.draftsman.io/docs-twee/css/base.css" rel="stylesheet">
@@ -32,7 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "API Authorization Expression", url: "#_top", children: [
+          {title: "Expressions", url: "#_top", children: [
+              {title: "API Authorization Expression", url: "#api-authorization-expression" },
+              {title: "Trigger Key Expression", url: "#trigger-key-expression" },
           ]},
         ];
 
@@ -58,21 +60,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
-    <div class="wm-article-nav pull-right">
-      <a href="../02%20trigger%20key%20expression/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../02%20trigger%20key%20expression/" class="btn btn-xs btn-link">
-        Trigger Key Expression
-      </a>
-    </div>
-    
     <div class="wm-article-nav">
-      <a href="../../aggregate/02%20data%20model/" class="btn btn-xs btn-default pull-left">
+      <a href="../" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../aggregate/02%20data%20model/" class="btn btn-xs btn-link">
-        Aggregate Data Model
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        Globaly available concepts
       </a>
     </div>
     
@@ -80,14 +72,18 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="api-authorization-expression">API Authorization Expression<a class="headerlink" href="#api-authorization-expression" title="Permanent link">#</a></h1>
+    <h1 id="expressions">Expressions<a class="headerlink" href="#expressions" title="Permanent link">#</a></h1>
+<h2 id="api-authorization-expression">API Authorization Expression<a class="headerlink" href="#api-authorization-expression" title="Permanent link">#</a></h2>
 <p>The authorization expression can be used in all components exposed in the API:</p>
 <ul>
 <li>Commands</li>
 <li>View queries</li>
 </ul>
-<p>It is used to convert an input parameter (command field or query filter field, e.g., key, key_begins_with, or a custom filter attribute) to a technical role that the API resolver will validate to determine if the requester has the specific role. This is useful for providing role-based access in a multi-tenant system.</p>
-<p>The expression has a <strong>name</strong>, e.g., <code>extractRoleFromArn</code>, which is used to access the expression from command models or view models.</p>
+<p>It is used to convert an input parameter (command field or query filter field, e.g., key, key_begins_with, or a custom
+filter attribute) to a technical role that the API resolver will validate to determine if the requester has the specific
+role. This is useful for providing role-based access in a multi-tenant system.</p>
+<p>The expression has a <strong>name</strong>, e.g., <code>extractRoleFromArn</code>, which is used to access the expression from command models or
+view models.</p>
 <p>You model inputs for this function separated with a <strong>;</strong> e.g.,</p>
 <pre><code>arn;role
 </code></pre>
@@ -115,6 +111,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 $utils.unauthorized()
 #end
 </code></pre>
+<h2 id="trigger-key-expression">Trigger Key Expression<a class="headerlink" href="#trigger-key-expression" title="Permanent link">#</a></h2>
+<p>The key expression is usable in all identity-based triggers:</p>
+<ul>
+<li>Aggregate behavior flows</li>
+<li>View data sources</li>
+</ul>
+<p>It is used to convert an event attribute into a functional key. The name of the expression, e.g., <strong>truncateArn</strong>, is
+used to access this expression from a behavior or data-source model.</p>
+<p>You can model input for the expression, e.g., <code>arn;length</code>.</p>
+<p>The expression itself is written in pure Python, e.g.,</p>
+<pre><code class="language-python">':'.join(arn.split(':')[:int(length)])
+</code></pre>
+<p>You can access it by configuring a method call inside the key field of behavior or data-source. The input parameters
+will reference a trigger attribute. You can use literals, but they can only be strings. In our case, the expression will
+evaluate the string to an integer.</p>
+<pre><code class="language-plaintext">#global.truncateArn(childArn, '2')
+</code></pre>
+<p>Let's say that the trigger contains an attribute <code>childArn=draftsmanid:workspace:project</code>, then the resulting key for
+the flow will be <code>draftsmanid:workspace</code>.</p>
 
   <br>
     
@@ -126,21 +141,11 @@ $utils.unauthorized()
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
-    <div class="wm-article-nav pull-right">
-      <a href="../02%20trigger%20key%20expression/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../02%20trigger%20key%20expression/" class="btn btn-xs btn-link">
-        Trigger Key Expression
-      </a>
-    </div>
-    
     <div class="wm-article-nav">
-      <a href="../../aggregate/02%20data%20model/" class="btn btn-xs btn-default pull-left">
+      <a href="../" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../aggregate/02%20data%20model/" class="btn btn-xs btn-link">
-        Aggregate Data Model
+        Previous</a><a href="../" class="btn btn-xs btn-link">
+        Globaly available concepts
       </a>
     </div>
     
