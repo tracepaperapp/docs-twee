@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" modified="2024-06-17T21:05:46.511Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="p3WYejRTSaWOUlnFVBKV" version="24.5.5" type="device">
+  <diagram name="Page-1" id="82e54ff1-d628-8f03-85c4-9753963a91cd">
+    <mxGraphModel dx="1224" dy="809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4ec97bd9e5d20128-1" value="" style="line;strokeWidth=2;html=1;fillColor=none;fontSize=28;fontColor=#004D99;strokeColor=#004D99;" parent="1" vertex="1">
+          <mxGeometry x="40" y="400" width="1200" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-5" value="Generate" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#0075E8;fontSize=15;fontColor=#FFFFFF;size=0.5093750000000015;verticalAlign=top;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="120" y="340" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-6" value="Staging" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#0075E8;fontSize=15;fontColor=#FFFFFF;size=0.5093750000000015;verticalAlign=top;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="573" y="340" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-7" value="&lt;span&gt;Package&lt;/span&gt;" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#0075E8;fontSize=15;fontColor=#FFFFFF;size=0.4178571428571445;flipV=1;verticalAlign=bottom;strokeColor=none;spacingBottom=4;" parent="1" vertex="1">
+          <mxGeometry x="347" y="425" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-8" value="&lt;span&gt;Quality Gate&lt;/span&gt;" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#0075E8;fontSize=15;fontColor=#FFFFFF;size=0.4178571428571445;flipV=1;verticalAlign=bottom;strokeColor=none;spacingBottom=4;" parent="1" vertex="1">
+          <mxGeometry x="800" y="425" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-9" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#61BAFF;fontSize=28;fontColor=#004D99;strokeWidth=3;strokeColor=#004D99;" parent="1" vertex="1">
+          <mxGeometry x="190" y="395" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-10" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#61BAFF;fontSize=28;fontColor=#004D99;strokeWidth=3;strokeColor=#004D99;" parent="1" vertex="1">
+          <mxGeometry x="417" y="395" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-11" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#61BAFF;fontSize=28;fontColor=#004D99;strokeWidth=3;strokeColor=#004D99;" parent="1" vertex="1">
+          <mxGeometry x="643" y="395" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-13" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#61BAFF;fontSize=28;fontColor=#004D99;strokeWidth=3;strokeColor=#004D99;" parent="1" vertex="1">
+          <mxGeometry x="870" y="395" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-14" value="&lt;h1&gt;Prepare code&lt;/h1&gt;&lt;p&gt;Convert the model to Python &amp;amp; CloudFormation. And additionally execute the unit tests.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=3;fillColor=#E6E6E6;fontSize=13;fontColor=#000000;align=center;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="93" y="430" width="215" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-16" value="&lt;h1&gt;Prepare deployment&lt;/h1&gt;&lt;p&gt;Create artifacts that are processible by CloudFormation&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=3;fillColor=#E6E6E6;fontSize=13;fontColor=#000000;align=center;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="319" y="250" width="215" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-17" value="&lt;h1&gt;Deploy Staging&lt;/h1&gt;&lt;p&gt;Deploy the application to a staging environment.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=3;fillColor=#E6E6E6;fontSize=13;fontColor=#000000;align=center;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="545" y="430" width="215" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="4ec97bd9e5d20128-18" value="&lt;h1&gt;Testing&lt;/h1&gt;&lt;p&gt;Execute API tests against the staging environment to verify the code is healthy enough to deploy to production.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=3;fillColor=#E6E6E6;fontSize=13;fontColor=#000000;align=center;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="773" y="250" width="215" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="XcaxOqjIOeGL1uuUbGWV-1" value="Production" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#0075E8;fontSize=15;fontColor=#FFFFFF;size=0.5093750000000015;verticalAlign=top;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1028" y="340" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XcaxOqjIOeGL1uuUbGWV-2" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#61BAFF;fontSize=28;fontColor=#004D99;strokeWidth=3;strokeColor=#004D99;" vertex="1" parent="1">
+          <mxGeometry x="1098" y="395" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="XcaxOqjIOeGL1uuUbGWV-3" value="&lt;h1&gt;Deploy Production&lt;/h1&gt;&lt;p&gt;Deploy the application to the production environment.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;strokeColor=none;strokeWidth=3;fillColor=#E6E6E6;fontSize=13;fontColor=#000000;align=center;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="430" width="215" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
