@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/05_workflow_and_ownership/">
+    <link rel="shortcut icon" href="https://tracepaper.draftsman.io/docs-twee/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Workflow and Ownership - Tracepaper</title>
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://tracepaper.draftsman.io/docs-twee/css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/jquery-3.2.1.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/bootstrap-3.3.7.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = 'https://tracepaper.draftsman.io/docs-twee';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Workflow and Ownership", url: "#_top", children: [
+              {title: "Workflow Description", url: "#workflow-description" },
+          ]},
+        ];
+
+    </script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../04_keychain/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../04_keychain/" class="btn btn-xs btn-link">
+        Understanding Keys and the Keychain Concept
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="workflow-and-ownership">Workflow and Ownership<a class="headerlink" href="#workflow-and-ownership" title="Permanent link">#</a></h1>
+<p>The provided diagram illustrates the workflow and components of the Tracepaper system, detailing the integration between
+modeling, code generation, and deployment processes, along with the ownership of each part of the infrastructure.</p>
+<p><img alt="image" src="../../images/tracepaper-architecture.png" /></p>
+<h2 id="workflow-description">Workflow Description<a class="headerlink" href="#workflow-description" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p><strong>Tracepaper: Web Modeler</strong></p>
+<ul>
+<li>Users model their applications in the Tracepaper Web Modeler, which is used for project management and to set
+  build triggers.</li>
+<li><strong>Ownership:</strong> Tracepaper</li>
+</ul>
+</li>
+<li>
+<p><strong>Tracepaper Backend</strong></p>
+<ul>
+<li>Manages project configurations and triggers builds based on the models created in the Web Modeler.</li>
+<li><strong>Ownership:</strong> Tracepaper</li>
+</ul>
+</li>
+<li>
+<p><strong>Draftsman Build Agent</strong></p>
+<ul>
+<li>The build agent pulls the model from the repository, converts it to Python and CloudFormation code, and executes
+  unit tests. This generated code is then pushed to respective repositories.</li>
+<li><strong>Ownership:</strong> Tracepaper</li>
+</ul>
+</li>
+<li>
+<p><strong>Model Repo</strong></p>
+<ul>
+<li>Contains the domain-specific language (XML) and any custom code. This repository is synced with the Tracepaper
+  backend and the Draftsman Build Agent.</li>
+<li><strong>Ownership:</strong> Client</li>
+</ul>
+</li>
+<li>
+<p><strong>Backend Repo</strong></p>
+<ul>
+<li>Stores the generated domain logic in Python and the infrastructure-as-code scripts (CloudFormation). These
+  artifacts are prepared for deployment.</li>
+<li><strong>Ownership:</strong> Client</li>
+</ul>
+</li>
+<li>
+<p><strong>GUI Repo</strong></p>
+<ul>
+<li>Holds the GUI assist framework and custom code, ensuring the user interface aligns with the backend logic.</li>
+<li><strong>Ownership:</strong> Client</li>
+</ul>
+</li>
+<li>
+<p><strong>AWS Pipeline</strong></p>
+<ul>
+<li>This pipeline handles the entire deployment process:<ul>
+<li><strong>Package: Prepare deployment</strong> - Packages the application artifacts.</li>
+<li><strong>Staging: Deploy Staging</strong> - Deploys the application to a staging environment.</li>
+<li><strong>Quality Gate: Testing</strong> - Runs API tests against the staging environment to ensure the application is
+  functioning correctly.</li>
+<li><strong>Production: Deploy Production</strong> - Finally, deploys the application to the production environment if all
+  tests pass.</li>
+</ul>
+</li>
+<li><strong>Ownership:</strong> Client</li>
+</ul>
+</li>
+</ol>
+<p>This architecture ensures a seamless and robust development-to-deployment workflow, emphasizing testing, error handling,
+and real-time client feedback.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../04_keychain/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../04_keychain/" class="btn btn-xs btn-link">
+        Understanding Keys and the Keychain Concept
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

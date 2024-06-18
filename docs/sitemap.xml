@@ -31,17 +31,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/02_View_Domain/</loc>
+         <loc>https://tracepaper.draftsman.io/docs-twee/02_Read_Domain/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/02_View_Domain/01_views/</loc>
+         <loc>https://tracepaper.draftsman.io/docs-twee/02_Read_Domain/01_views/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/02_View_Domain/02_projections/</loc>
+         <loc>https://tracepaper.draftsman.io/docs-twee/02_Read_Domain/02_projections/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -66,17 +66,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/01_keychain/</loc>
+         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/01_Technical_Architecture/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/02_asynchronisity/</loc>
+         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/02_AWS_services/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/04_AWS_services/</loc>
+         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/03_asynchronisity/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/04_keychain/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/05_workflow_and_ownership/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
