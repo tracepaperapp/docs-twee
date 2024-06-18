@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/04_AWS_services/">
+    <link rel="shortcut icon" href="https://tracepaper.draftsman.io/docs-twee/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>AWS services - Tracepaper</title>
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://tracepaper.draftsman.io/docs-twee/css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/jquery-3.2.1.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/bootstrap-3.3.7.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = 'https://tracepaper.draftsman.io/docs-twee';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "AWS services", url: "#_top", children: [
+              {title: "DynamoDB", url: "#dynamodb" },
+              {title: "Amazon Cognito", url: "#amazon-cognito" },
+              {title: "AWS Secrets Manager", url: "#aws-secrets-manager" },
+              {title: "Amazon EventBridge", url: "#amazon-eventbridge" },
+              {title: "AWS Lambda", url: "#aws-lambda" },
+              {title: "AWS AppSync", url: "#aws-appsync" },
+          ]},
+        ];
+
+    </script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../02_asynchronisity/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../02_asynchronisity/" class="btn btn-xs btn-link">
+        Asynchronous Command Handling
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="aws-services">AWS services<a class="headerlink" href="#aws-services" title="Permanent link">#</a></h1>
+<h2 id="dynamodb">DynamoDB<a class="headerlink" href="#dynamodb" title="Permanent link">#</a></h2>
+<p><strong>Service Description</strong>: Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable
+performance with seamless scalability. It supports both document and key-value data models, making it suitable for a
+wide range of applications.</p>
+<p><strong>Selection Rationale</strong>: We chose DynamoDB for its seamless scalability and managed nature, which allows us to focus on
+application development rather than database management. Its integration with other AWS services and ability to handle
+large-scale workloads with low latency were key factors in our decision.</p>
+<p><strong>Optimization Goals</strong>:</p>
+<ul>
+<li><strong>AWS Native &amp; Serverless</strong>: DynamoDB is a fully managed service provided by AWS, eliminating the need for server
+  management.</li>
+<li><strong>Minimizing Management and Cost</strong>: It offers pay-as-you-go pricing and automate tasks such as hardware provisioning,
+  setup, and configuration,
+  reducing operational overhead and potential costs.</li>
+</ul>
+<p><strong>Documentation</strong>: <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">AWS DynamoDB Documentation</a></p>
+<p><strong>Service Limits</strong>: <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">DynamoDB Service Limits</a></p>
+<h2 id="amazon-cognito">Amazon Cognito<a class="headerlink" href="#amazon-cognito" title="Permanent link">#</a></h2>
+<p><strong>Service Description</strong>: Amazon Cognito provides authentication, authorization, and user management for web and mobile
+applications. It supports social identity providers, such as Facebook, Google, and Amazon, as well as enterprise
+identity providers via SAML 2.0.</p>
+<p><strong>Selection Rationale</strong>: We selected Amazon Cognito for its ease of integration with other AWS services and its
+comprehensive identity management features. It simplifies user authentication and access control while providing a
+secure and scalable solution.</p>
+<p><strong>Optimization Goals</strong>:</p>
+<ul>
+<li><strong>AWS Native &amp; Serverless</strong>: Amazon Cognito is a fully managed service by AWS, reducing operational complexity and
+  server management.</li>
+<li><strong>Minimizing Management and Cost</strong>: It offers pay-as-you-go pricing and automates user management tasks, helping to
+  lower operational costs.</li>
+</ul>
+<p><strong>Documentation</strong>: <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">Amazon Cognito Documentation</a></p>
+<p><strong>Service Limits</strong>: <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Amazon Cognito Limits</a></p>
+<h2 id="aws-secrets-manager">AWS Secrets Manager<a class="headerlink" href="#aws-secrets-manager" title="Permanent link">#</a></h2>
+<p><strong>Service Description</strong>: AWS Secrets Manager helps you protect access to your applications, services, and IT resources
+without the upfront cost and complexity of managing your own infrastructure. It enables you to rotate, manage, and
+retrieve secrets throughout their lifecycle.</p>
+<p><strong>Selection Rationale</strong>: We opted for AWS Secrets Manager to centrally manage and secure access to sensitive
+information, such as database credentials and API keys. Its integration with AWS services were pivotal in our decision.</p>
+<p><strong>Optimization Goals</strong>:</p>
+<ul>
+<li><strong>AWS Native &amp; Serverless</strong>: AWS Secrets Manager is a fully managed service, eliminating the need for infrastructure
+  management.</li>
+</ul>
+<p><strong>Documentation</strong>: <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager Documentation</a></p>
+<p><strong>Service Limits</strong>: <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/limits.html">AWS Secrets Manager Limits</a></p>
+<h2 id="amazon-eventbridge">Amazon EventBridge<a class="headerlink" href="#amazon-eventbridge" title="Permanent link">#</a></h2>
+<p><strong>Service Description</strong>: Amazon EventBridge is a serverless event bus service that makes it easy to connect applications
+using data from your own applications, integrated Software-as-a-Service (SaaS) applications, and AWS services.</p>
+<p><strong>Selection Rationale</strong>: We selected Amazon EventBridge for its seamless integration capabilities across AWS services.
+It simplifies event-driven architectures by decoupling event producers from consumers and
+supporting event filtering and transformation. Especially the content based routing is pivotal in our architecture.</p>
+<p><strong>Optimization Goals</strong>:</p>
+<ul>
+<li><strong>AWS Native &amp; Serverless</strong>: Amazon EventBridge is serverless, handling all infrastructure provisioning and scaling
+  automatically.</li>
+<li><strong>Minimizing Management and Cost</strong>: It reduces operational overhead by managing event routing and processing,
+  optimizing costs through pay-as-you-go pricing.</li>
+</ul>
+<p><strong>Documentation</strong>: <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html">Amazon EventBridge Documentation</a></p>
+<p><strong>Service Limits</strong>: <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html">Amazon EventBridge Limits</a></p>
+<h2 id="aws-lambda">AWS Lambda<a class="headerlink" href="#aws-lambda" title="Permanent link">#</a></h2>
+<p><strong>Service Description</strong>: AWS Lambda is a serverless compute service that lets you run code without provisioning or
+managing servers. It automatically scales your application by running code in response to triggers and manages resources
+on your behalf.</p>
+<p><strong>Selection Rationale</strong>: We chose AWS Lambda for its serverless architecture, which eliminates the need for server
+management and optimizes resource utilization based on workload demands. Its seamless integration with other AWS
+services facilitates event-driven computing models.</p>
+<p><strong>Optimization Goals</strong>:</p>
+<ul>
+<li><strong>AWS Native &amp; Serverless</strong>: AWS Lambda is fully managed by AWS, reducing operational complexity and administrative
+  overhead.</li>
+<li><strong>Minimizing Management and Cost</strong>: It optimizes cost by charging only for compute time consumed and automatically
+  scaling resources as needed.</li>
+</ul>
+<p><strong>Documentation</strong>: <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS Lambda Documentation</a></p>
+<p><strong>Service Limits</strong>: <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">AWS Lambda Limits</a></p>
+<h2 id="aws-appsync">AWS AppSync<a class="headerlink" href="#aws-appsync" title="Permanent link">#</a></h2>
+<p><strong>Service Description</strong>: AWS AppSync simplifies application development by letting you create scalable APIs that
+securely access data from multiple sources. It supports real-time and offline capabilities, making it suitable for
+mobile and web applications.</p>
+<p><strong>Selection Rationale</strong>: We selected AWS AppSync for its managed GraphQL service, which reduces the complexity of API
+development and data synchronization. Its ability to handle real-time updates aligns with our
+application’s requirements.</p>
+<p><strong>Optimization Goals</strong>:</p>
+<ul>
+<li><strong>AWS Native &amp; Serverless</strong>: AWS AppSync is fully managed by AWS, minimizing operational overhead and infrastructure
+  management.</li>
+<li><strong>Minimizing Management and Cost</strong>: It optimizes cost by providing built-in scaling and pay-as-you-go pricing,
+  ensuring efficient resource utilization.</li>
+</ul>
+<p><strong>Documentation</strong>: <a href="https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html">AWS AppSync Documentation</a></p>
+<p><strong>Service Limits</strong>: <a href="https://docs.aws.amazon.com/general/latest/gr/appsync.html#limits_appsync">AWS AppSync Limits</a></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../02_asynchronisity/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../02_asynchronisity/" class="btn btn-xs btn-link">
+        Asynchronous Command Handling
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

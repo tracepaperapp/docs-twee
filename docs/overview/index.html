@@ -33,6 +33,12 @@
         
         var pageToc = [
           {title: "Concept overview", url: "#_top", children: [
+              {title: "Commands", url: "#commands" },
+              {title: "Aggregates and Behavior (pale red)", url: "#aggregates-and-behavior-pale-red" },
+              {title: "Views and Queries", url: "#views-and-queries" },
+              {title: "Automations (also known as Notifiers)", url: "#automations-also-known-as-notifiers" },
+              {title: "Projections", url: "#projections" },
+              {title: "Custom code", url: "#custom-code" },
           ]},
         ];
 
@@ -81,36 +87,40 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="concept-overview">Concept overview<a class="headerlink" href="#concept-overview" title="Permanent link">#</a></h1>
-<p><img alt="image" src="https://file.notion.so/f/f/768f9acf-dd3f-42cb-a961-efe7917c26ac/5e085bb4-cdda-4578-b735-5e2d8f42cfff/devconf_2025.png?id=6dc08d44-b37a-4b0c-bd69-8ed352a727d5&amp;table=block&amp;spaceId=768f9acf-dd3f-42cb-a961-efe7917c26ac&amp;expirationTimestamp=1718575200000&amp;signature=WafdjPEs_7stxkGUN_IxOr436OyOKARwgjdI0qBXCx8&amp;downloadName=devconf+2025.png" /></p>
-<p>Certainly! Here's a textual explanation of the concepts depicted in the architecture diagram:</p>
-<p>In the architecture diagram:</p>
-<p><strong>Commands</strong>
-Commands represent actions triggered by users or external systems. They encapsulate requests to perform specific
-operations within the system.</p>
-<p><strong>Aggregates and Behavior</strong></p>
+<p><img alt="image" src="../images/concept.png" /></p>
+<p>In the diagram we mapped the relations between our concepts:</p>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">#</a></h2>
+<p>Commands represent actions triggered by users or external systems. They encapsulate requests to perform specific
+operations within the system. They are part of the API model in green.</p>
+<h2 id="aggregates-and-behavior-pale-red">Aggregates and Behavior (pale red)<a class="headerlink" href="#aggregates-and-behavior-pale-red" title="Permanent link">#</a></h2>
 <ul>
 <li><strong>Event Sourcing</strong>: This approach ensures that domain events, which capture immutable truths about past actions,
   remain unchanged over time. It separates the factual recording (event sourcing) from how we interpret and reason about
   these events (projection).</li>
 <li><strong>Technical Key</strong>: This key is immutable and crucial for maintaining consistency in the system.</li>
 </ul>
-<p><strong>Views and Queries</strong></p>
+<h2 id="views-and-queries">Views and Queries<a class="headerlink" href="#views-and-queries" title="Permanent link">#</a></h2>
 <ul>
 <li><strong>Projection of Truth</strong>: While projecting the truth to execute domain logic is essential, querying involves a
   different perspective. It allows deviations in the data model and supports querying based on functional keys that can
-  change over time.</li>
+  change over time (green).</li>
 <li><strong>Materialized Views</strong>: These are separate read models optimized for queries. They are decoupled from the write model
   and offer benefits like converting technical keys to functional ones, optimizing data aggregations, and establishing
-  relationships between entities that are otherwise decoupled.</li>
+  relationships between entities that are otherwise decoupled (blue).</li>
 </ul>
-<p><strong>Notifiers</strong>
-Notifiers orchestrate commands in response to domain events without maintaining state. They have the capability to
-invoke a wide range of web APIs, including AWS, REST, GraphQL, and the platform's own API.</p>
-<p><strong>Projections</strong>
-Projections enhance queries by combining data from APIs, materialized views, and custom Python logic. They facilitate
+<h2 id="automations-also-known-as-notifiers">Automations (also known as Notifiers)<a class="headerlink" href="#automations-also-known-as-notifiers" title="Permanent link">#</a></h2>
+<p>Notifiers orchestrate commands in response to domain events without maintaining state. They have the capability to
+invoke a wide range of web APIs, including AWS, REST, GraphQL, and the platform's own API (orange).</p>
+<h2 id="projections">Projections<a class="headerlink" href="#projections" title="Permanent link">#</a></h2>
+<p>Projections enhance queries by combining data from APIs, materialized views, and custom Python logic. They facilitate
 transformations such as calculations, advanced filtering, or generating time-sensitive attributes (tokens).</p>
-<p>This structured approach ensures clarity and flexibility in handling actions, data querying, and system interactions
-within the architectural context provided.</p>
+<h2 id="custom-code">Custom code<a class="headerlink" href="#custom-code" title="Permanent link">#</a></h2>
+<p>The models can be augmented by Python code (bright red) to create functionality beyond the modelling concepts.</p>
+<p>Advanced business logic should be implemented through programming because modeling it can add more complexity than it solves, and
+coding is faster for this purpose. However, it must be understandable for domain experts. Python is an ideal choice
+because it is widely used by academics in fields like chemistry, biology, and data science. This increases the
+likelihood that a domain expert can learn it, especially when we add "liberating constraints" from a methodology like "
+tracepaper."</p>
 
   <br>
     

@@ -2,57 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/overview/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/01_Write_Domain/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/01_Write_Domain/01_commands/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/01_Write_Domain/02_aggregate/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/01_Write_Domain/03_automations/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/02_View_Domain/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/02_View_Domain/01_views/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/02_View_Domain/02_projections/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/03_Utils/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://tracepaper.draftsman.io/docs-twee/03_Utils/01_expressions/</loc>
-         <lastmod>2024-06-16</lastmod>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/04_Pipeline/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/04_Pipeline/QualityGate/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/01_keychain/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/02_asynchronisity/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/05_Technical_Concepts/04_AWS_services/</loc>
+         <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
