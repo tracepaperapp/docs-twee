@@ -2,7 +2,10 @@
 
 ![image](./images/concept.png)
 
-In the diagram we mapped the relations between our concepts:
+In the diagram we mapped the relations between our concepts.
+
+Gray elements represent technical concepts included to provide cohesion to the overall design, while all colored
+sections depict modeling concepts. The red and white areas indicate custom code.
 
 ## Commands
 
@@ -39,7 +42,8 @@ transformations such as calculations, advanced filtering, or generating time-sen
 
 The models can be augmented by Python code (bright red) to create functionality beyond the modelling concepts.
 
-Advanced business logic should be implemented through programming because modeling it can add more complexity than it solves, and
+Advanced business logic should be implemented through programming because modeling it can add more complexity than it
+solves, and
 coding is faster for this purpose. However, it must be understandable for domain experts. Python is an ideal choice
 because it is widely used by academics in fields like chemistry, biology, and data science. This increases the
 likelihood that a domain expert can learn it, especially when we add "liberating constraints" from a methodology like "

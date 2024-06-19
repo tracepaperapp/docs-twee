@@ -88,7 +88,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <h1 id="concept-overview">Concept overview<a class="headerlink" href="#concept-overview" title="Permanent link">#</a></h1>
 <p><img alt="image" src="../images/concept.png" /></p>
-<p>In the diagram we mapped the relations between our concepts:</p>
+<p>In the diagram we mapped the relations between our concepts.</p>
+<p>Gray elements represent technical concepts included to provide cohesion to the overall design, while all colored
+sections depict modeling concepts. The red and white areas indicate custom code.</p>
 <h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">#</a></h2>
 <p>Commands represent actions triggered by users or external systems. They encapsulate requests to perform specific
 operations within the system. They are part of the API model in green.</p>
@@ -116,7 +118,8 @@ invoke a wide range of web APIs, including AWS, REST, GraphQL, and the platform'
 transformations such as calculations, advanced filtering, or generating time-sensitive attributes (tokens).</p>
 <h2 id="custom-code">Custom code<a class="headerlink" href="#custom-code" title="Permanent link">#</a></h2>
 <p>The models can be augmented by Python code (bright red) to create functionality beyond the modelling concepts.</p>
-<p>Advanced business logic should be implemented through programming because modeling it can add more complexity than it solves, and
+<p>Advanced business logic should be implemented through programming because modeling it can add more complexity than it
+solves, and
 coding is faster for this purpose. However, it must be understandable for domain experts. Python is an ideal choice
 because it is widely used by academics in fields like chemistry, biology, and data science. This increases the
 likelihood that a domain expert can learn it, especially when we add "liberating constraints" from a methodology like "
