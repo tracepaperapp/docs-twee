@@ -95,4 +95,34 @@
          <lastmod>2024-06-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/06_Why/01_python/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/06_Why/02_cqrs/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/06_Why/03_event_sourcing/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/06_Why/04_graphql/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/06_Why/05_serverless/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/06_Why/06_aws/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>

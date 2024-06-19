@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://tracepaper.draftsman.io/docs-twee/06_Why/04_graphql/">
+    <link rel="shortcut icon" href="https://tracepaper.draftsman.io/docs-twee/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Why GraphQL - Tracepaper</title>
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://tracepaper.draftsman.io/docs-twee/css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/jquery-3.2.1.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/bootstrap-3.3.7.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = 'https://tracepaper.draftsman.io/docs-twee';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Why GraphQL", url: "#_top", children: [
+              {title: "Benefits of Using GraphQL for Modeling:", url: "#benefits-of-using-graphql-for-modeling" },
+          ]},
+        ];
+
+    </script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../05_serverless/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../05_serverless/" class="btn btn-xs btn-link">
+        Why Serverless
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../03_event_sourcing/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../03_event_sourcing/" class="btn btn-xs btn-link">
+        Why Event Sourcing
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="why-graphql">Why GraphQL<a class="headerlink" href="#why-graphql" title="Permanent link">#</a></h1>
+<table>
+<thead>
+<tr>
+<th>Feature/Aspect</th>
+<th>GraphQL</th>
+<th>REST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alignment with CQRS</strong></td>
+<td>Perfect fit with CQRS; commands (mutations) and queries are distinct, reducing cognitive load because no additional level of abstraction is needed.</td>
+<td>Less aligned; REST has a good fit with CRUD, while we deal with commands (CUD) and queries (R), merging those concepts together increases complexity and cognitive load (adds just another thing that you should think about).</td>
+</tr>
+<tr>
+<td><strong>Modeling</strong></td>
+<td>Simplifies modeling by mirroring existing structures; focus on behavior, not data.</td>
+<td>Requires explicit API modeling, adding a layer of abstraction and complexity.</td>
+</tr>
+<tr>
+<td><strong>Client Interaction</strong></td>
+<td>Commands modeled as GraphQL mutations; async processing monitored via subscriptions.</td>
+<td>CRUD operations on resources; requires inventing virtual resources for modeling, less intuitive.</td>
+</tr>
+<tr>
+<td><strong>Learning Curve</strong></td>
+<td>Familiarity with GraphQL required, but benefits in aligning with CQRS and reducing overall complexity.</td>
+<td>REST is widely known but might not fit well with our implementation of CQRS, requiring additional abstractions.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="benefits-of-using-graphql-for-modeling">Benefits of Using GraphQL for Modeling:<a class="headerlink" href="#benefits-of-using-graphql-for-modeling" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p><strong>Conceptual Fit with CQRS</strong>:</p>
+<ul>
+<li><strong>Commands and Mutations</strong>: In our modeling tool, commands represent client interactions or requests for changes,
+  aligning perfectly with GraphQL mutations. The API accepts these commands, returning a trace ID that can be
+  monitored via GraphQL subscriptions, allowing clients to track the asynchronous processing of these mutations.</li>
+<li><strong>Materialized Views and Queries</strong>: Our tool uses materialized views and projections to handle data viewing,
+  aligning seamlessly with GraphQL queries.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reduced Cognitive Load</strong>:</p>
+<ul>
+<li><strong>Natural API Structure</strong>: With GraphQL, the API mirrors the existing structure of the model. This means
+  developers only need to decide what to expose and configure authentication/authorization methods, significantly
+  reducing the cognitive load.</li>
+<li><strong>Behavior Over Data</strong>: Our approach focuses on behavior rather than just data manipulation. REST, being more
+  resource-centric, would require us to invent virtual resources and simulate CRUD operations, which adds
+  unnecessary complexity.</li>
+</ul>
+</li>
+<li>
+<p><strong>Potential Challenges</strong>:</p>
+<ul>
+<li><strong>Less Common Usage</strong>: While GraphQL is powerful, it may be less commonly used compared to REST. However, the
+  benefits in reducing cognitive load and fitting naturally with our CQRS architecture make it a superior choice for our
+  needs.</li>
+</ul>
+</li>
+</ol>
+<p>By choosing GraphQL, we ensure that our modeling tool aligns perfectly with our CQRS architecture, providing a more
+intuitive, efficient, and effective way to design APIs, reducing the complexity and cognitive load on developers. This
+alignment allows for a more straightforward configuration of commands, queries, and access patterns, leading to a
+smoother and more productive development experience.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../05_serverless/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../05_serverless/" class="btn btn-xs btn-link">
+        Why Serverless
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../03_event_sourcing/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../03_event_sourcing/" class="btn btn-xs btn-link">
+        Why Event Sourcing
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
