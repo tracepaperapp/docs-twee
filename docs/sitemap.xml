@@ -125,4 +125,14 @@
          <lastmod>2024-06-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/07_Inspirations/01_ddd/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://tracepaper.draftsman.io/docs-twee/07_Inspirations/02_event_storming/</loc>
+         <lastmod>2024-06-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>

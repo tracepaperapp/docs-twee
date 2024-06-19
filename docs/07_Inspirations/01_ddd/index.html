@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://tracepaper.draftsman.io/docs-twee/07_Inspirations/01_ddd/">
+    <link rel="shortcut icon" href="https://tracepaper.draftsman.io/docs-twee/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Domain-Driven Design (DDD) - Tracepaper</title>
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="https://tracepaper.draftsman.io/docs-twee/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://tracepaper.draftsman.io/docs-twee/css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/jquery-3.2.1.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/bootstrap-3.3.7.min.js"></script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = 'https://tracepaper.draftsman.io/docs-twee';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Domain-Driven Design (DDD)", url: "#_top", children: [
+              {title: "Mapping DDD Concepts to Tracepaper Concepts", url: "#mapping-ddd-concepts-to-tracepaper-concepts" },
+          ]},
+        ];
+
+    </script>
+    <script src="https://tracepaper.draftsman.io/docs-twee/js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../02_event_storming/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../02_event_storming/" class="btn btn-xs btn-link">
+        Event Storming
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../06_Why/06_aws/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../06_Why/06_aws/" class="btn btn-xs btn-link">
+        Why AWS
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="domain-driven-design-ddd">Domain-Driven Design (DDD)<a class="headerlink" href="#domain-driven-design-ddd" title="Permanent link">#</a></h1>
+<p>Domain-Driven Design (DDD) is an approach to software development that emphasizes collaboration between technical and
+domain experts to model complex domains effectively. The core concept is to create a shared understanding of the domain
+through ubiquitous language and to structure the software around the domain model. DDD helps in aligning the software
+design with business needs and making the system more maintainable and adaptable to changes.</p>
+<p>For further explanation, visit: <a href="https://en.wikipedia.org/wiki/Domain-driven_design">Domain-Driven Design</a></p>
+<h2 id="mapping-ddd-concepts-to-tracepaper-concepts">Mapping DDD Concepts to Tracepaper Concepts<a class="headerlink" href="#mapping-ddd-concepts-to-tracepaper-concepts" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>DDD Concept</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Tracepaper Concept</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entities</strong></td>
+<td>Objects with a distinct identity</td>
+<td><strong>Aggregate Document</strong></td>
+<td>Clustered entities managed as a single unit</td>
+</tr>
+<tr>
+<td><strong>Value Objects</strong></td>
+<td>Objects defined by their attributes</td>
+<td><strong>Not explicitly mapped</strong></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Aggregates</strong></td>
+<td>Cluster of entities and value objects</td>
+<td><strong>Aggregates, Behavior Flows</strong></td>
+<td>Clustered entities with business rules</td>
+</tr>
+<tr>
+<td><strong>Repositories</strong></td>
+<td>Mechanisms for accessing aggregates</td>
+<td><strong>Abstracted by technical framework</strong></td>
+<td>Handled through event sourcing</td>
+</tr>
+<tr>
+<td><strong>Services</strong></td>
+<td>Operations that don't belong to entities</td>
+<td><strong>Automations</strong></td>
+<td>Logic and operations</td>
+</tr>
+<tr>
+<td><strong>Factories</strong></td>
+<td>Methods for creating aggregates</td>
+<td><strong>Abstracted by technical framework</strong></td>
+<td>Handled through event sourcing</td>
+</tr>
+<tr>
+<td><strong>Domain Events</strong></td>
+<td>Events indicating something has happened</td>
+<td><strong>Events</strong></td>
+<td>Significant occurrences that trigger changes</td>
+</tr>
+<tr>
+<td><strong>Commands</strong></td>
+<td>Instructions to perform an action</td>
+<td><strong>Commands</strong></td>
+<td>Requests for state changes or operations</td>
+</tr>
+<tr>
+<td><strong>Bounded Contexts</strong></td>
+<td>Logical boundaries within the domain</td>
+<td><strong>Subdomains</strong></td>
+<td>Defines scope and boundaries of the model</td>
+</tr>
+</tbody>
+</table>
+<p>This table shows how the core concepts of Domain-Driven Design are integrated into the Tracepaper modeling tool, 
+facilitating a clear and structured approach to system design.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../02_event_storming/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../02_event_storming/" class="btn btn-xs btn-link">
+        Event Storming
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../06_Why/06_aws/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../06_Why/06_aws/" class="btn btn-xs btn-link">
+        Why AWS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
