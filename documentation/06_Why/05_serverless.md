@@ -52,7 +52,12 @@ EventBridge, which allow developers to build and run applications without having
     - Serverless architecture abstracts away infrastructure complexities, allowing domain experts to focus on system
       design and business logic. This aligns with our goal of enabling domain experts to contribute directly to the
       system without needing deep technical expertise in infrastructure management.
-    - While serverless icreases configuration complexity, this is largly abstracted away by the Tracepaper modeling concepts.
+    - While serverless icreases configuration complexity, this is largly abstracted away by the Tracepaper modeling
+      concepts.
+
+4. **Optimized TCO**: 
+   - By only paying for what you use and eliminating the need for server maintenance, the Total Cost of
+      Ownership (TCO) is significantly reduced, making it a financially efficient option.
 
 ## Conclusion
 
