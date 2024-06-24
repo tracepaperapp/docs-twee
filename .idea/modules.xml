@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/docs-twee.iml" filepath="$PROJECT_DIR$/.idea/docs-twee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../draftsman-engine/.idea/draftsman-engine.iml" filepath="$PROJECT_DIR$/../draftsman-engine/.idea/draftsman-engine.iml" />
     </modules>
   </component>
 </project>

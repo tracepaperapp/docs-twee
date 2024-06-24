@@ -1,20 +1,14 @@
-site_name: Tracepaper
+site_name: Tracepaper by Draftsman
 docs_dir: './documentation'
 site_dir: './docs'
-site_url: 'https://tracepaper.draftsman.io/docs-twee'
-base_url: 'https://tracepaper.draftsman.io/docs-twee'
 
 theme:
-  name: null
-  custom_dir: mkdocs_windmill
-  static_templates: [404.html]
-  search_index_only: true
-  include_search_page: true
+  name: material
+  custom_dir: material/overrides
+  features:
+    - navigation.footer
+    - navigation.instant
+    - navigation.tabs
+    - announce.dismiss
+    - privacy
 
-markdown_extensions:
-  - toc:
-      permalink: '#'
-
-extra:
-  history_buttons: false
-  version: v3

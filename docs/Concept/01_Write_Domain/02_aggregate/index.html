@@ -1,0 +1,1681 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../01_commands/">
+      
+      
+        <link rel="next" href="../03_automations/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>Aggregates - Tracepaper by Draftsman</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link rel="stylesheet" href="../../../assets/stylesheets/custom.7c86dd97.min.css">
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aggregates" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+              </button>
+            
+            
+
+
+          </div>
+          
+            <script>var content,el=document.querySelector("[data-md-component=announce]");el&&(content=el.querySelector(".md-typeset"),__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0))</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Tracepaper by Draftsman" class="md-header__button md-logo" aria-label="Tracepaper by Draftsman" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tracepaper by Draftsman
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aggregates
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  Concept
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Technical%20Architecture/01_Pipeline/" class="md-tabs__link">
+          
+  
+  Technical Architecture
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../inspirations/01_ddd/" class="md-tabs__link">
+          
+  
+  Inspirations
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Tracepaper by Draftsman" class="md-nav__button md-logo" aria-label="Tracepaper by Draftsman" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Tracepaper by Draftsman
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Concept
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Concept
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why Tracepaper
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concept overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    01 Write Domain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            01 Write Domain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About the Write domain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Aggregates
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_automations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    02 Read Domain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            02 Read Domain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Read_Domain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About the Read domain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Read_Domain/01_views/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Read_Domain/02_projections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    03 Utils
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            03 Utils
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_Utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Globaly available concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_Utils/01_expressions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Expressions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Technical Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    01 Pipeline
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            01 Pipeline
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/01_Pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/01_Pipeline/QualityGate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quality Gate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    02 Technical Concepts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            02 Technical Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/02_Technical_Concepts/01_Technical_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Technical Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/02_Technical_Concepts/02_AWS_services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/02_Technical_Concepts/03_asynchronisity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asynchronous Command Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/02_Technical_Concepts/04_keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding Keys and the Keychain Concept
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/02_Technical_Concepts/05_workflow_and_ownership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workflow and Ownership
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    03 Why
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            03 Why
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/03_Why/01_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/03_Why/02_cqrs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why CQRS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/03_Why/03_event_sourcing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why Event Sourcing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/03_Why/04_graphql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why GraphQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/03_Why/05_serverless/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why Serverless
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Technical%20Architecture/03_Why/06_aws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why AWS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Inspirations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Inspirations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../inspirations/01_ddd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Domain-Driven Design (DDD)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../inspirations/02_event_storming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Event Storming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="aggregates">Aggregates</h1>
+<p>An aggregate reflects a domain concept, a collection of data (state) and behavior to manipulate the data. The data is
+internally encapsulated, so the only way to induce a state change is by invoking behavior.</p>
+<p>Modeling an aggregate involves two activities:</p>
+<ol>
+<li>Modeling the data model.</li>
+<li>Modeling behavior on the model.</li>
+</ol>
+<hr />
+<blockquote>
+<p>A concept from DDD opinionated to optimize cognitive load, focusing on the concepts rather than the underlying
+technology.
+It abstracts the Command/Compute part of our CQRS architecture.</p>
+</blockquote>
+<h1 id="aggregate-data-model">Aggregate Data Model</h1>
+<p>The data model consists of two parts, the actual part: the <strong>events</strong>, and the projection: the <strong>document</strong>.</p>
+<h2 id="the-document">The Document</h2>
+<p>The document is a projection of the data, a mental model of the state so that we can implement validations in the
+behavior to ensure data integrity. Because it is a projection, this model can evolve over time without manipulating the
+underlying data. Events from the past are immutable by definition.</p>
+<p>Thus, the document serves both as a mental model for ourselves on how we want to think about state and as a way to model
+how we present data to the viewstore. It is the data contract between the aggregate and the viewstore.</p>
+<p><strong>One of the document fields (String) will serve as the business key of the aggregate instance</strong></p>
+<h2 id="the-events">The Events</h2>
+<p>The domain events are the recording of facts. They reflect a bundle of data that encompasses the delta between two
+states. Therefore, the state is not stored in the database, merely a log of deltas that exist alongside each other on a
+timeline. This is called the event log.</p>
+<h3 id="event-handling">Event Handling</h3>
+<p>To populate our mental model, the projection, we need event handlers. These model the mapping between the event log and
+the document.</p>
+<hr />
+<h2 id="side-notes-on-views">Side Notes on Views</h2>
+<p>Views will be discussed later, but regarding the contract, the viewstore essentially models the external contract, the
+GraphQL API. So while the document is a data contract, this contract remains within the domain. The viewstore can do
+various things with the data:</p>
+<h3 id="store-as-is">Store As Is</h3>
+<p>Essentially caching a snapshot of the aggregate state. In this case, the internal model becomes publicly accessible,
+being queryable and read-optimized.</p>
+<h3 id="enrich-and-store">Enrich and Store</h3>
+<p>Enrichment can take various forms, such as combining data from different aggregates into one document or modifying data
+for storage, i.e., determining derived data and caching it in the viewstore.</p>
+<h3 id="enrich-during-data-reading">Enrich During Data Reading</h3>
+<p>Modifying the API response before it is sent to the client. This involves executing logic on the combination of request
+data and cached data. Essentially, this is an on-the-fly projection where the view model is virtual. The logic has
+access to the request data and a fluent API to the viewstore, allowing the creation of a response object using Python
+scripting from this combination.</p>
+<h1 id="behavior-flows">Behavior Flows</h1>
+<h2 id="overview">Overview</h2>
+<p>Behavior flows define the lifecycle and interactions of aggregates within a system. They encapsulate the business logic
+required to handle events and commands, ensuring consistent state transitions and proper handling of complex workflows.
+By defining how an aggregate responds to various inputs, behavior flows help maintain system integrity and align with
+business rules.</p>
+<h2 id="general">General</h2>
+<p>Behavior is a response to an event emited within the domain this may be an ActorEvent (Command) or a DomainEvent (From
+an other entity), which can lead to changes in the state of an aggregate.</p>
+<ul>
+<li><strong>Name</strong>: A unique identifier for the command.</li>
+<li><strong>Create Command</strong>: (Optional) Indicates if this should be the initial behavior of a new instance of the aggregate. If
+  the instance with the specific business key is already present in the database the execution will fail.</li>
+</ul>
+<h2 id="trigger">Trigger</h2>
+<p>A trigger specifies the conditions under which a command is activated. It listens for specific events and uses the data
+from these events to execute the corresponding behavior flow.</p>
+<ul>
+<li><strong>Source</strong>: The event that activates the command.</li>
+<li><strong>Key Field</strong>: The primary field used to correlate the incoming event with the correct aggregate instance.</li>
+<li><strong>Mapping</strong>: Transfers data from the event to the flow variable fields. Optionally event-fields can be marked
+  as <code>part of the idempotency key</code> giving you the ability to model functional idempotency.</li>
+</ul>
+<h2 id="processors">Processors</h2>
+<p>Processors are essential components within behavior flows that perform specific operations. They manage validations,
+data transformations, event emissions, and other logical actions to ensure that the behavior executes correctly and that
+aggregates maintain consistent state transitions. Each processor type serves a unique function and has specific
+attributes to support its operations.</p>
+<h2 id="processor-types">Processor Types</h2>
+<h2 id="emit-event">Emit Event</h2>
+<p>The <code>emit-event</code> processor is responsible for generating and emitting domain events, which signal that a significant
+change or action has occurred within the system. This processor type includes a reference
+specifying the event to be emitted, and a mapping mechanism that transfers flow-variables to the
+event fields.</p>
+<h2 id="code">Code</h2>
+<p>The <code>code</code> processor allows for custom logic to be executed within the behavior flow. This processor is used when
+predefined processor types do not cover the required operation. It includes the code (inline) or script (global) to
+be executed, and optionally, inputs or parameters required by the script.</p>
+<h2 id="validator">Validator</h2>
+<p>The <code>validator</code> processor checks specific conditions and ensures they are met before proceeding. If the condition fails,
+an exception or error is triggered, preventing the behavior from executing further. This processor type includes
+the condition to be checked, typically expressed as a logical expression, and the message or exception to be
+raised if the condition is not met. If a functional exception is raised, no events will be persisted to the event store.
+So a validator may also validate on the instance state after emit-event processors are already applied, it will still
+prevent the state transition.</p>
+<h2 id="set-variable">Set Variable</h2>
+<p>The <code>set-variable</code> processor assigns values to variables (in memory) within the behavior flow. This can be used to store
+intermediate results, configuration values, or other data needed for subsequent processing steps. This processor type
+includes the name of the variable to be set, and the expression or value used to determine the variable's value.</p>
+<h2 id="update-key">Update Key</h2>
+<p>The <code>update-key</code> processor updates the business key of an aggregate instance. This is useful for operations that require
+changing
+the identifier or key used to access an aggregate instance. This processor type includes the field
+in the aggregate to be updated, and the new value to be assigned to the key field.</p>
+<h2 id="test-case">Test Case</h2>
+<p>Test cases validate the behavior of a command by defining inputs, expected domain events, and resulting state changes.
+They ensure that the command performs as intended and that the aggregate's state transitions correctly.</p>
+<ul>
+<li><strong>Name</strong>: A unique identifier for the test case.</li>
+<li><strong>Trigger Event</strong>: The event that initiates the test case.</li>
+<li><strong>Input</strong>: Defines the input data for the command.<ul>
+<li><strong>Name</strong>: The name of the input field.</li>
+<li><strong>Value</strong>: The value assigned to the input field.</li>
+<li><strong>Type</strong>: The data type of the input field.</li>
+</ul>
+</li>
+<li><strong>Expected Domain Event</strong>: Specifies the expected event to be emitted by the command.<ul>
+<li><strong>Field</strong>: Defines the expected values for fields in the emitted event.</li>
+</ul>
+</li>
+<li><strong>State</strong>: (Optional) The initial state of the aggregate before executing the command.</li>
+<li><strong>Expected State</strong>: The expected state of the aggregate after executing the command.<ul>
+<li><strong>Primary Key (pk)</strong>: The key identifying the aggregate instance.</li>
+<li><strong>State Data</strong>: The expected state data of the aggregate.</li>
+</ul>
+</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Behavior flows are essential for managing the lifecycle and interactions of aggregates. By defining commands, triggers,
+mappings, processors, and test cases, behavior flows ensure that business logic is consistently applied, state
+transitions are correctly managed, and the system's behavior aligns with the intended domain model. Understanding and
+modeling behavior flows are crucial for implementing robust, maintainable, and scalable systems.</p>
+<h1 id="advanced-features-of-an-aggregate">Advanced Features of an Aggregate</h1>
+<h2 id="event-store-time-to-live-ttl">Event Store Time-to-Live (TTL)</h2>
+<p>The Event Store Time-to-Live (TTL) is an advanced configuration setting for aggregates that specifies the duration, in
+seconds, for which events associated with the aggregate should be retained in the event store. This feature is
+particularly useful in scenarios where certain events become irrelevant or obsolete after a specified period.
+The default TTL is -1 seconds which translates to indefinitely.</p>
+<p>The TTL setting allows system architects and developers to manage the lifecycle of events within the event store
+effectively. By setting an expiration time for events related to an aggregate, the system can automatically purge older
+events beyond the specified TTL. This helps in maintaining a lean and efficient event store by removing outdated data
+that no longer contributes to the current state or history of the aggregate.</p>
+<h3 id="benefits">Benefits</h3>
+<ul>
+<li>
+<p><strong>Optimized Event Storage</strong>: Helps in managing storage space by automatically removing events that are no longer
+  relevant.</p>
+</li>
+<li>
+<p><strong>Compliance and Governance</strong>: Supports compliance requirements by ensuring that sensitive or outdated data is removed
+  from the system in a timely manner.</p>
+</li>
+<li>
+<p><strong>Performance</strong>: Improves performance by reducing the volume of data that needs to be processed and queried over time.</p>
+</li>
+</ul>
+<h3 id="considerations">Considerations</h3>
+<ul>
+<li>
+<p><strong>Event Retention Policies</strong>: Define appropriate TTL values based on business needs and regulatory requirements.</p>
+</li>
+<li>
+<p><strong>Data Archival</strong>: Consider integrating TTL with data archival strategies to maintain historical data beyond the event
+  store.</p>
+</li>
+</ul>
+<h3 id="summary_1">Summary</h3>
+<p>The Event Store Time-to-Live (TTL) configuration for aggregates enhances the management and efficiency of event-driven
+architectures. By setting TTL values, systems can automatically manage event data retention, ensuring that only relevant
+and current information is maintained in the event store while optimizing storage resources and improving overall system
+performance.</p>
+<h2 id="snapshot-interval">Snapshot Interval</h2>
+<p>The Snapshot Interval is an advanced configuration setting for aggregates that determines how frequently snapshots of
+the aggregate's state should be taken. Snapshots capture the current state of an aggregate at a specific point in time,
+providing a checkpoint that can optimize event sourcing and reconstruction processes.</p>
+<p>In event sourcing architectures, aggregates can accumulate a large number of events over time, which can impact
+performance during state reconstruction. Snapshots serve as efficient checkpoints by storing the aggregate's current
+state periodically. Instead of replaying all events from the beginning to reconstruct the aggregate's state, the system
+can load the latest snapshot and replay only the events that occurred after the snapshot was taken.</p>
+<h3 id="usage">Usage</h3>
+<p>When configuring an aggregate with Snapshot Interval:</p>
+<ul>
+<li><strong>Snapshot Interval</strong>: Specifies the number of events after which a new snapshot of the aggregate's state should be
+  taken. For example, a snapshot interval of 100 means that every 100 events, a snapshot of the
+  aggregate's state will be captured.</li>
+</ul>
+<h3 id="benefits_1">Benefits</h3>
+<ul>
+<li>
+<p><strong>Performance Optimization</strong>: Reduces the time and computational resources required for state reconstruction by
+  loading snapshots and applying only subsequent events.</p>
+</li>
+<li>
+<p><strong>Efficient Event Handling</strong>: Improves overall system performance by minimizing the number of events that need to be
+  processed during state recovery.</p>
+</li>
+<li>
+<p><strong>Scalability</strong>: Facilitates scalability by reducing the processing overhead associated with large aggregates and long
+  event histories.</p>
+</li>
+</ul>
+<h3 id="considerations_1">Considerations</h3>
+<ul>
+<li><strong>Snapshot Size</strong>: Evaluate the size and complexity of aggregate states to determine an appropriate snapshot interval.</li>
+<li><strong>Event Volume</strong>: Adjust the snapshot interval based on the frequency and volume of events generated by aggregates.</li>
+</ul>
+<h3 id="default-value">Default Value</h3>
+<p>The default Snapshot Interval is typically set to 100 events, providing a balance between capturing frequent snapshots
+and minimizing overhead. This default value can be adjusted based on specific application requirements and performance
+considerations.</p>
+<h3 id="summary_2">Summary</h3>
+<p>The Snapshot Interval configuration enhances the efficiency and performance of event-sourced aggregates by periodically
+capturing snapshots of their states. By reducing the computational effort required for state reconstruction, snapshots
+optimize event handling and support scalability in event-driven architectures. Adjusting the snapshot interval allows
+systems to achieve optimal performance while effectively managing aggregate states and event histories.</p>
+<h2 id="backup-to-blob-storage-s3">Backup to Blob Storage (S3)</h2>
+<p>The Backup to Blob Storage feature allows event-sourced aggregates to automatically back up their state to cloud
+storage, specifically Amazon S3. This capability ensures that critical data remains secure and accessible, providing
+resilience against data loss and supporting disaster recovery strategies.</p>
+<p>In event sourcing architectures, ensuring data durability and recoverability is paramount. Backup to Blob Storage
+leverages cloud infrastructure, such as Amazon S3, to store snapshots of aggregate states at regular intervals.
+Additionally, it manages the retention of these backups based on specified policies, providing flexibility in data
+management and compliance with retention requirements.</p>
+<p>The event store (DynamoDB) has point-in-time recovery enabled, therefore, this feature is disabled by default
+to reduce the area where data needs to be protected. If this feature should be enabled for a specific aggregate 
+is a business consideration.</p>
+<h3 id="configuration">Configuration</h3>
+<ul>
+<li><strong>Interval</strong>: Specifies the frequency, specified in days, at which snapshots of aggregate states should be backed up to S3. .</li>
+<li><strong>Retention Period</strong>: Defines the duration for which backup snapshots should be retained in S3 storage, measured in
+  days. After the retention period expires, older snapshots are automatically deleted.</li>
+</ul>
+<h3 id="usage_1">Usage</h3>
+<p>The Backup to Blob Storage feature offers several advantages:</p>
+<ul>
+<li>
+<p><strong>Data Resilience</strong>: Enhances data durability by securely storing aggregate state snapshots in Amazon S3, which is
+  designed for high availability and redundancy.</p>
+</li>
+<li>
+<p><strong>Disaster Recovery</strong>: Facilitates rapid recovery of aggregate states in the event of data corruption, system
+  failures, or disasters by maintaining up-to-date backups. Although the required script to recover from cold storage 
+  are not (yet) provided by Draftsman.</p>
+</li>
+<li>
+<p><strong>Compliance</strong>: Supports compliance with regulatory requirements and data retention policies by managing backup
+  retention periods effectively.</p>
+</li>
+</ul>
+<h3 id="implementation-considerations">Implementation Considerations</h3>
+<ul>
+<li><strong>Security</strong>: Ensure proper access controls and encryption mechanisms are in place to protect sensitive data stored in
+  S3.</li>
+<li><strong>Cost Management</strong>: Monitor storage costs associated with S3 backups and optimize usage based on storage needs and
+  budget constraints.</li>
+<li><strong>Integration</strong>: Integrate with existing backup and recovery processes to streamline data management and operational
+  workflows.</li>
+</ul>
+<h3 id="summary_3">Summary</h3>
+<p>Backup to Blob Storage (S3) is a critical feature in event-driven architectures that ensures the resilience and
+recoverability of event-sourced aggregates. By automatically backing up aggregate states to Amazon S3 at defined
+intervals and managing retention periods, this feature enhances data durability, supports disaster recovery strategies,
+and enables compliance with data retention policies. Configuring backup intervals and retention periods optimally
+balances data protection with operational efficiency, thereby safeguarding business-critical information in event
+sourcing environments.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01_commands/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Commands">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Commands
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03_automations/" class="md-footer__link md-footer__link--next" aria-label="Next: Automations">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Automations
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.instant", "navigation.tabs", "announce.dismiss", "privacy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  <script src="../../../assets/javascripts/custom.058c863c.min.js"></script>
+
+  </body>
+</html>
